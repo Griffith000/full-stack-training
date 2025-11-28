@@ -16,4 +16,14 @@ A focused introduction to modern front‑end fundamentals: JavaScript core conce
     - Built React components and passed props
     - Implemented dynamic data flow between components
 
+## Run the React app
+
+To run the example React app for Session 1, from the repository root run:
+
+```fish
+cd react-cats-app
+pnpm install
+pnpm run dev
+```
+
 
