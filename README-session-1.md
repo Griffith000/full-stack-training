@@ -1,6 +1,6 @@
 # Session 1 
 
-Brief summary of topics and hands‑on work from Session 1.
+In this session we did a small JS & Ts recap and kickstarted react with a funny cat project
 
 ## Overview
 A focused introduction to modern front‑end fundamentals: JavaScript core concepts, basic TypeScript benefits, and a practical React setup using Vite.
