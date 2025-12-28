@@ -1,0 +1,30 @@
+ FakeStore 
+🎯 Built Today
+Product grid from FakeStore API
+
+Search & price filters
+
+Modern UI with shadcn
+
+Smart data fetching
+
+⚡ Tech Stack
+Next.js 14 - App Router, Server Components
+
+TanStack Query - Smart caching
+
+shadcn/ui - UI components
+
+TypeScript - Type safety
+
+🧠 Key Concepts:
+CSR VS SSR 
+Server Components (default) vs Client Components ('use client')
+
+Layouts - Shared UI across pages
+
+File-based routing - Folders = URLs
+
+Custom hooks - Reuse logic
+
+TanStack Query setup
