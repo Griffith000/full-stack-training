@@ -10,3 +10,12 @@
 
           
 [Session2](https://github.com/Griffith000/full-stack-training/tree/session2)
+
+-session3 --js promises 
+          -- nextjs: csr vs ssr 
+                     client component vs server componenet
+                     custom hook
+                     tanstack query 
+                     shadcn/ui
+
+[Session2](https://github.com/Griffith000/full-stack-training/tree/session3)
