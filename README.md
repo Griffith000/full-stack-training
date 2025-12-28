@@ -18,4 +18,4 @@
                      tanstack query 
                      shadcn/ui
 
-[Session2](https://github.com/Griffith000/full-stack-training/tree/session3)
+[Session3](https://github.com/Griffith000/full-stack-training/tree/session3)
