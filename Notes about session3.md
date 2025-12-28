@@ -12,10 +12,6 @@ __Server\-Side Rendering \(SSR \- Next\.js\):__
 
 You call ahead\. Kitchen starts cooking while you're on your way\. You arrive, food is on the table\. You eat immediately\!
 
-![SSR vs CSR : r/nextjs]()
-
-![Next.js Client-Side and Server-Side Components: When and What to Use | by  Abdullah @ Writes | Level Up Coding]()
-
 __2/What are Layouts?__
 
 - Layouts = Wrapper components that apply to multiple pages
@@ -125,15 +121,12 @@ __Query Key:__
 
 __Query Function:__
 
-javascript
-
+```javascript
 async function fetchProducts\(\) \{
-
   const res = await fetch\('/api/products'\);
-
   return res\.json\(\); // MUST return data
-
 \}
+```
 
 __Query States:__
 
