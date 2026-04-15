@@ -13,6 +13,7 @@ const client = new PrismaClient({
 export const auth = betterAuth({
   database: prismaAdapter(client, { provider: "postgresql" }),
   baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000/",
+  trustedOrigins: process.env.VERCEL_URL ? [`https://${process.env.VERCEL_URL}`] : [],
   emailAndPassword: { enabled: true },
   session: {
     expiresIn: 60 * 60 * 24 * 2
