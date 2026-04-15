@@ -1,19 +1,94 @@
-import { Button } from "@/components/ui/button"
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
 
 export default function Page() {
+  const { data: session, isPending } = authClient.useSession();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
+
+  const handleSignIn = async () => {
+    await authClient.signIn.email({ email, password });
+  };
+
+  const handleSignUp = async () => {
+    await authClient.signUp.email({ email, password, name });
+  };
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+  };
+
+  if (isPending) {
+    return (
+      <div className="flex min-h-svh items-center justify-center">
+        <p className="text-sm text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+    <div className="flex min-h-svh items-center justify-center p-6">
+      <div className="flex w-full max-w-sm flex-col gap-4 rounded-lg border p-6 shadow-sm">
+        {session ? (
+          <div className="flex flex-col gap-4 text-center">
+            <h1 className="text-xl font-medium">Welcome, {session.user.name || "User"}!</h1>
+            <p className="text-sm text-muted-foreground">{session.user.email}</p>
+            <Button onClick={handleSignOut} variant="destructive">
+              Sign Out
+            </Button>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            <h1 className="text-xl font-medium text-center">
+              {isSignUp ? "Create an account" : "Sign In"}
+            </h1>
+            
+            {isSignUp && (
+              <input
+                className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            )}
+            
+            <input
+              className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            
+            <input
+              className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            
+            {isSignUp ? (
+              <Button onClick={handleSignUp}>Sign Up</Button>
+            ) : (
+              <Button onClick={handleSignIn}>Sign In</Button>
+            )}
+            
+            <Button
+              variant="link"
+              className="text-xs text-muted-foreground"
+              onClick={() => setIsSignUp(!isSignUp)}
+            >
+              {isSignUp ? "Already have an account? Sign In" : "Don't have an account? Sign Up"}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }
