@@ -1,20 +1,23 @@
 # Sessions
 
 
-[Session1](https://github.com/Griffith000/full-stack-training/tree/session-1)
+[Session-1](https://github.com/Griffith000/full-stack-training/tree/session-1)
 
 - Intro to the project: TypeScript + React + Vite basics, simple TS examples and component setup.
           
-[Session2](https://github.com/Griffith000/full-stack-training/tree/session2)
+[Session-2](https://github.com/Griffith000/full-stack-training/tree/session2)
 
 - introduction to React hooks (useState,useRef ,useEffect)
 - discover tailwind css 
 - manipulate those hooks  to create a Mini chatbot 
 
-[Session3](https://github.com/Griffith000/full-stack-training/tree/session3)
+[Session-3](https://github.com/Griffith000/full-stack-training/tree/session3)
 - nextjs: csr vs ssr && client component vs server componenet
 - custom hook
 - shadcn/ui
 
-[Session4](https://github.com/Griffith000/full-stack-training/tree/session4)
+[Session-4](https://github.com/Griffith000/full-stack-training/tree/session4)
 - JS promises : traditional fetching vs Tanstack query
+
+[Session-5](https://github.com/Griffith000/full-stack-training/tree/session-5)
+- integrate authentication with Better-auth + deployemnt on vercel
